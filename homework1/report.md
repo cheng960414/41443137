@@ -91,8 +91,6 @@ $$
 #include <iostream>
 
 using namespace std;
-
-
 // 遞迴版本
 int recursive(int m, int n) {
 
@@ -106,8 +104,6 @@ int recursive(int m, int n) {
         return recursive(m - 1, recursive(m, n - 1));
     }
 }
-
-
 // Stack Push
 void push(int*& stack, int& top, int& capacity, int value) {
 
@@ -122,24 +118,18 @@ void push(int*& stack, int& top, int& capacity, int value) {
         for (int i = 0; i <= top; i++) {
             newStack[i] = stack[i];
         }
-
         // 釋放舊記憶體
         delete[] stack;
 
         stack = newStack;
         capacity = newCapacity;
     }
-
     stack[++top] = value;
 }
-
-
 // Stack Pop
 int pop(int* stack, int& top) {
     return stack[top--];
 }
-
-
 // 非遞迴版本
 int nonRecursive(int m, int n) {
 
@@ -171,24 +161,17 @@ int nonRecursive(int m, int n) {
 
         // A(m,n) = A(m-1,A(m,n-1))
         else {
-
             n--;
-
             // 外層
             push(stack, top, capacity, m - 1);
-
             // 內層
             push(stack, top, capacity, m);
         }
     }
-
     // 釋放記憶體
     delete[] stack;
-
     return n;
 }
-
-
 int main() {
 
     int m, n;
@@ -326,11 +309,7 @@ $$
 輸入：
 
 ```shell
-$ g++ main.cpp --std=c++21 -o main.exe
-$ .\main.exe
 1 2
-Recursive: 4
-Non-recursive: 4
 ```
 
 預期結果：
@@ -348,10 +327,7 @@ $$
 輸入：
 
 ```shell
-$ .\main.exe
 2 2
-Recursive: 7
-Non-recursive: 7
 ```
 
 預期結果：
@@ -369,10 +345,7 @@ $$
 輸入：
 
 ```shell
-$ .\main.exe
 3 2
-Recursive: 29
-Non-recursive: 29
 ```
 
 預期結果：
