@@ -106,21 +106,16 @@ int recursive(int m, int n) {
 }
 // Stack Push
 void push(int*& stack, int& top, int& capacity, int value) {
-
     // Stack 空間不足時，容量加倍
     if (top >= capacity - 1) {
-
         int newCapacity = capacity * 2;
-
         int* newStack = new int[newCapacity];
-
         // 複製原本 Stack 的資料
         for (int i = 0; i <= top; i++) {
             newStack[i] = stack[i];
         }
         // 釋放舊記憶體
         delete[] stack;
-
         stack = newStack;
         capacity = newCapacity;
     }
@@ -132,20 +127,14 @@ int pop(int* stack, int& top) {
 }
 // 非遞迴版本
 int nonRecursive(int m, int n) {
-
     int capacity = 16;
     int top = -1;
-
     // 建立 Stack
     int* stack = new int[capacity];
-
     // 將初始 m 放入 Stack
     push(stack, top, capacity, m);
-
     while (top >= 0) {
-
         m = pop(stack, top);
-
         // A(0,n) = n + 1
         if (m == 0) {
             n++;
@@ -153,9 +142,7 @@ int nonRecursive(int m, int n) {
 
         // A(m,0) = A(m-1,1)
         else if (n == 0) {
-
             push(stack, top, capacity, m - 1);
-
             n = 1;
         }
 
@@ -173,19 +160,14 @@ int nonRecursive(int m, int n) {
     return n;
 }
 int main() {
-
     int m, n;
-
     cin >> m >> n;
-
     // 遞迴版本
     cout << "Recursive: "
          << recursive(m, n) << endl;
-
     // 非遞迴版本
     cout << "Non-recursive: "
          << nonRecursive(m, n) << endl;
-
     return 0;
 }
 ```
