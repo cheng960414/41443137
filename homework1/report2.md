@@ -1,4 +1,4 @@
-# 冪集（Power Set）
+Homework 1 冪集（Power Set）
 
 ## 1. 解題說明
 
