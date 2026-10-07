@@ -2,26 +2,26 @@
 #include <vector>
 
 using namespace std;
-// »¼°j¨ç¦¡¡G­pºâ powerset
+// éè¿´å‡½å¼ï¼šè¨ˆç®— powerset
 vector<vector<char>> powerset(vector<char> S) {
-    // 1. Base Case¡G»¼°j²×¤î±ø¥ó
+    // 1. Base Caseï¼šéè¿´çµ‚æ­¢æ¢ä»¶
     if (S.empty()) {
-        return { {} }; // ¶Ç¦^¥]§t¤@­ÓªÅ¶°¦Xªº vector
+        return { {} }; // å‚³å›åŒ…å«ä¸€å€‹ç©ºé›†åˆçš„ vector
     }
-    // 2. ©î¸Ñ°İÃD
-    char x = S.front();                           // ¨ú¥XÀY¤¸¯À ('a')
-    vector<char> rest(S.begin() + 1, S.end());    // ³Ñ¾l¤¸¯À (['b', 'c'])
-    vector<vector<char>> subPowerset = powerset(rest); // »¼°j©I¥s¨ú±o¤U¼hµ²ªG
-    // 3. ²Õ¦Xµª®×
+    // 2. æ‹†è§£å•é¡Œ
+    char x = S.front();                           // å–å‡ºé ­å…ƒç´  ('a')
+    vector<char> rest(S.begin() + 1, S.end());    // å‰©é¤˜å…ƒç´  (['b', 'c'])
+    vector<vector<char>> subPowerset = powerset(rest); // éè¿´å‘¼å«å–å¾—ä¸‹å±¤çµæœ
+    // 3. çµ„åˆç­”æ¡ˆ
     vector<vector<char>> result;
-    // ¥[¤W¤£§t x ªº©Ò¦³¤l¶°
+    // åŠ ä¸Šä¸å« x çš„æ‰€æœ‰å­é›†
     for (const auto& subset : subPowerset) {
         result.push_back(subset);
     }
-    // ¥[¤W¥]§t x ªº©Ò¦³¤l¶°
+    // åŠ ä¸ŠåŒ…å« x çš„æ‰€æœ‰å­é›†
     for (const auto& subset : subPowerset) {
         vector<char> newSubset = subset;
-        newSubset.insert(newSubset.begin(), x);   // ±N x ¥[¦^¨C¤@­Ó¤l¶°«e
+        newSubset.insert(newSubset.begin(), x);   // å°‡ x åŠ å›æ¯ä¸€å€‹å­é›†å‰
         result.push_back(newSubset);
     }
     return result;
