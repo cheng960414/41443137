@@ -165,7 +165,7 @@ int main() {
         switch (choice) {
         case 1:
             cout << "A(x) = ";  A.show();
-            cout << "B(x) = ";  A.show();
+            cout << "B(x) = ";  B.show();
             break;
         case 2: {
             Polynomial C = A.Add(B);
