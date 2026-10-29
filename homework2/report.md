@@ -19,6 +19,7 @@
 #include <iostream>
 #include <cmath>
 #include <algorithm>
+
 using namespace std;
 
 class Polynomial;//前置宣告
@@ -32,17 +33,18 @@ private:
 
 class Polynomial {
 private:
-    Term *termArray; //儲存非零項的動態陣列
+    Term* termArray; //儲存非零項的動態陣列
     int capacity;    //陣列容量
     int terms;       //實際非零項數量
 public:
-    Polynomial Add (const Polynomial& b);
+    Polynomial Add(const Polynomial& b);
     Polynomial Mult(const Polynomial& b);
     void Readinput();
-    void clear(){
+    void show();
+    void clear() {
         delete[] termArray;
-        capacity=2;
-        terms=0;
+        capacity = 2;
+        terms = 0;
         termArray = new Term[capacity];
     }
     Polynomial() :capacity(2), terms(0) {
@@ -60,7 +62,7 @@ public:
         termArray[terms].coef = theCoef;
         termArray[terms++].exp = theExp;
     }
- 
+
 };
 //數字相加
 Polynomial Polynomial::Add(const Polynomial& b) {
@@ -100,7 +102,7 @@ Polynomial Polynomial::Mult(const Polynomial& b) {
     return c;
 }
 //輸入數字
-void Polynomial::Readinput(){
+void Polynomial::Readinput() {
     clear();
     int numtemp;
     cin >> numtemp;
@@ -110,13 +112,74 @@ void Polynomial::Readinput(){
         cin >> coef >> exp;
         newTerm(coef, exp);
     }
-} 
+}
+void Polynomial::show() {
+    if (terms == 0) {
+        cout << "0\n";
+        return;
+    }
+    for (int i = 0; i < terms; ++i) {
+        if (i > 0 && termArray[i].coef > 0) cout << " + ";
+
+        if (termArray[i].exp == 0) {
+    cout << termArray[i].coef;
+        }
+        else if (termArray[i].exp == 1) {
+           cout << termArray[i].coef << "x";
+        }
+        else {
+            cout << termArray[i].coef << "x^" << termArray[i].exp;
+        }
+    }
+    cout << "\n";
+}
+
+void showMenu() {
+    cout << "\n Polynomial 選單 \n";
+        cout << "1. 顯示 A、B\n";
+        cout << "2. A + B\n"; 
+        cout << "3. A * B\n";
+        cout << "0.結束程式\n";
+        cout << "選擇：";
+}
+
+
 int main() {
     Polynomial A, B;
+    cout << "!要先輸入需要幾個係數項!\n";
     cout << "輸入A多項式 :";
     A.Readinput();
     cout << "輸入B多項式 :";
     B.Readinput();
+    A.show();
+    B.show();
 
-}
+    int choice;
+    while (true) {
+        showMenu();
+        if (!(cin >> choice)) break;
+
+        cout << "\n";
+        if (choice == 0) break;
+
+        switch (choice) {
+        case 1:
+            cout << "A(x) = ";  A.show();
+            cout << "B(x) = ";  A.show();
+            break;
+        case 2: {
+            Polynomial C = A.Add(B);
+            cout << "A(x) = ";  A.show();
+            cout << "B(x) = ";  B.show();
+            cout << "A + B = ";  C.show();
+            break;
+        }
+        case 3: {
+            Polynomial C = A.Mult(B);
+            cout << "A * B = "; C.show();
+            break;
+          }
+        }
+    }
+    return 0;
 ```
