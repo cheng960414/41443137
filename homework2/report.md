@@ -138,7 +138,7 @@ void Polynomial::show() {
     }
     cout << "\n";
 }
-
+//建立選單
 void showMenu() {
     cout << "\n Polynomial 選單 \n";
         cout << "1. 顯示 A、B\n";
