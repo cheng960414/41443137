@@ -99,7 +99,7 @@ Polynomial Polynomial::Mult(const Polynomial& b) {
             temp.newTerm(termArray[i].coef * b.termArray[j].coef,
                 termArray[i].exp + b.termArray[j].exp);
         }
-        c = c.Add(temp);
+        c = c.Add(temp);//相同指數進行相加
     }
     return c;
 }
