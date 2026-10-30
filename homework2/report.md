@@ -115,6 +115,7 @@ void Polynomial::Readinput() {
         newTerm(coef, exp);
     }
 }
+//顯示目前的數值
 void Polynomial::show() {
     if (terms == 0) {
         cout << "0\n";
@@ -124,7 +125,7 @@ void Polynomial::show() {
         if (i > 0 && termArray[i].coef > 0) cout << " + ";
 
         if (termArray[i].exp == 0) {
-    cout << termArray[i].coef;
+            cout << termArray[i].coef;
         }
         else if (termArray[i].exp == 1) {
            cout << termArray[i].coef << "x";
