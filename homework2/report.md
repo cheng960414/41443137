@@ -190,7 +190,8 @@ int main() {
 ```
 
 ## 程式測試
-![程式執行畫面](homework2/images/1.png)
+
+![程式執行畫面](images/1.png)
 
 
 ## 程式改善
