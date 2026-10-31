@@ -192,6 +192,10 @@ int main() {
 ## 程式測試
 
 ![程式執行畫面](images/1.png)
+![程式執行畫面](images/3.png)
+![程式執行畫面](images/2.png)
+![程式執行畫面](images/4.png)
+![程式執行畫面](images/5.png)
 
 
 ## 程式改善
