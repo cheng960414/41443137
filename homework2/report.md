@@ -190,7 +190,7 @@ int main() {
 ```
 
 ## 程式測試
-![程式執行畫面]([images/result.png](https://github.com/cheng960414/41443137/blob/main/homework2/images/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202026-10-31%20120156.png))
+![程式執行畫面](homework2/images/1.png)
 
 
 ## 程式改善
