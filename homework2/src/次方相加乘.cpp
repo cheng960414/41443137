@@ -4,20 +4,20 @@
 
 using namespace std;
 
-class Polynomial;//«e¸m«Å§i
+class Polynomial;//å‰ç½®å®£å‘Š
 
 class Term {
     friend class Polynomial;
 private:
-    float coef; // «Y¼Æ
-    int exp;    // «ü¼Æ
+    float coef; // ä¿‚æ•¸
+    int exp;    // æŒ‡æ•¸
 };
 
 class Polynomial {
 private:
-    Term* termArray; //Àx¦s«D¹s¶µªº°ÊºA°}¦C
-    int capacity;    //°}¦C®e¶q
-    int terms;       //¹ê»Ú«D¹s¶µ¼Æ¶q
+    Term* termArray; //å„²å­˜éé›¶é …çš„å‹•æ…‹é™£åˆ—
+    int capacity;    //é™£åˆ—å®¹é‡
+    int terms;       //å¯¦éš›éé›¶é …æ•¸é‡
 public:
     Polynomial Add(const Polynomial& b);
     Polynomial Mult(const Polynomial& b);
@@ -46,7 +46,7 @@ public:
     }
 
 };
-//¼Æ¦r¬Û¥[
+//æ•¸å­—ç›¸åŠ 
 Polynomial Polynomial::Add(const Polynomial& b) {
     Polynomial c;
     int aPos = 0, bPos = 0;
@@ -70,7 +70,7 @@ Polynomial Polynomial::Add(const Polynomial& b) {
         c.newTerm(b.termArray[bPos].coef, b.termArray[bPos].exp);
     return c;
 }
-//¼Æ¦r¬Û­¼
+//æ•¸å­—ç›¸ä¹˜
 Polynomial Polynomial::Mult(const Polynomial& b) {
     Polynomial c;
     for (int i = 0; i < terms; i++) {
@@ -79,11 +79,11 @@ Polynomial Polynomial::Mult(const Polynomial& b) {
             temp.newTerm(termArray[i].coef * b.termArray[j].coef,
                 termArray[i].exp + b.termArray[j].exp);
         }
-        c = c.Add(temp);//¬Û¦P«ü¼Æ¶i¦æ¬Û¥[
+        c = c.Add(temp);//ç›¸åŒæŒ‡æ•¸é€²è¡Œç›¸åŠ 
     }
     return c;
 }
-//¿é¤J¼Æ¦r
+//è¼¸å…¥æ•¸å­—
 void Polynomial::Readinput() {
     clear();
     int numtemp;
@@ -95,7 +95,7 @@ void Polynomial::Readinput() {
         newTerm(coef, exp);
     }
 }
-//Åã¥Ü¥Ø«eªº¼Æ­È
+//é¡¯ç¤ºç›®å‰çš„æ•¸å€¼
 void Polynomial::show() {
     if (terms == 0) {
         cout << "0\n";
@@ -118,21 +118,21 @@ void Polynomial::show() {
 }
 
 void showMenu() {
-    cout << "\n Polynomial ¿ï³æ \n";
-    cout << "1. Åã¥Ü A¡BB\n";
+    cout << "\n Polynomial é¸å–® \n";
+    cout << "1. é¡¯ç¤º Aã€B\n";
     cout << "2. A + B\n";
     cout << "3. A * B\n";
-    cout << "0.µ²§ôµ{¦¡\n";
-    cout << "¿ï¾Ü¡G";
+    cout << "0.çµæŸç¨‹å¼\n";
+    cout << "é¸æ“‡ï¼š";
 }
 
 
 int main() {
     Polynomial A, B;
-    cout << "!­n¥ı¿é¤J»İ­n´X­Ó«Y¼Æ¶µ!\n";
-    cout << "¿é¤JA¦h¶µ¦¡ :";
+    cout << "!è¦å…ˆè¼¸å…¥éœ€è¦å¹¾å€‹ä¿‚æ•¸é …!\n";
+    cout << "è¼¸å…¥Aå¤šé …å¼ :";
     A.Readinput();
-    cout << "¿é¤JB¦h¶µ¦¡ :";
+    cout << "è¼¸å…¥Bå¤šé …å¼ :";
     B.Readinput();
     A.show();
     B.show();
@@ -165,3 +165,4 @@ int main() {
         }
     }
     return 0;
+}
