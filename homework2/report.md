@@ -191,10 +191,18 @@ int main() {
 
 ## 程式測試
 
+A=2x^2+1x^5+2x
+
+B=2x+3x^5+1x^2+4x
+
 ![程式執行畫面](images/1.png)
+
 ![程式執行畫面](images/3.png)
+
 ![程式執行畫面](images/2.png)
+
 ![程式執行畫面](images/4.png)
+
 ![程式執行畫面](images/5.png)
 
 
