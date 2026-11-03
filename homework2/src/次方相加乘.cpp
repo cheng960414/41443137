@@ -1,4 +1,4 @@
-#include <iostream>
+include <iostream>
 #include <cmath>
 #include <algorithm>
 
@@ -108,7 +108,7 @@ void Polynomial::show() {
             cout << termArray[i].coef;
         }
         else if (termArray[i].exp == 1) {
-            cout << termArray[i].coef << "x";
+           cout << termArray[i].coef << "x";
         }
         else {
             cout << termArray[i].coef << "x^" << termArray[i].exp;
@@ -116,14 +116,14 @@ void Polynomial::show() {
     }
     cout << "\n";
 }
-
+//建立選單
 void showMenu() {
     cout << "\n Polynomial 選單 \n";
-    cout << "1. 顯示 A、B\n";
-    cout << "2. A + B\n";
-    cout << "3. A * B\n";
-    cout << "0.結束程式\n";
-    cout << "選擇：";
+        cout << "1. 顯示 A、B\n";
+        cout << "2. A + B\n"; 
+        cout << "3. A * B\n";
+        cout << "0.結束程式\n";
+        cout << "選擇：";
 }
 
 
@@ -161,8 +161,7 @@ int main() {
             Polynomial C = A.Mult(B);
             cout << "A * B = "; C.show();
             break;
-        }
+          }
         }
     }
     return 0;
-}
